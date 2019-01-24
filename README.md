@@ -4,4 +4,4 @@
 
 - Displays the internal humidity and temperature on the second line of the display using a connected DHT22/DHT11 and the Adafruit DHT library https://github.com/adafruit/Adafruit_Python_DHT
 
-- Uses Request library to interact with the DarkSky API http://docs.python-requests.org/en/master/
+- Uses Requests library to interact with the DarkSky API http://docs.python-requests.org/en/master/
