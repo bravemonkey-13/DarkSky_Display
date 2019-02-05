@@ -51,7 +51,7 @@ def DisplayOnLCD():
 
         str_pad = " " * len(status)
         status = str_pad + status
-        startPos = 7 + int(len(str(out_temp)))
+        startPos = 7 + len(str(out_temp))
         
         t_end = time.time() + 60 * 5
         while time.time() < t_end:
