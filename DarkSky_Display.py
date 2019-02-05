@@ -17,7 +17,7 @@ class LCD:
     LCD_On = True
 
 def GetExternalTemp():
-    key = '1234' # Get your free API key from DarkSky.net
+    key = '1234'
     url = 'https://api.darksky.net/forecast/%s/43.6543,-79.3860?units=ca' % (key)
     # Powered by Darksky
 
@@ -44,21 +44,22 @@ def DisplayOnLCD():
             mylcd.lcd_display_string("Retrying",1)
             time.sleep(30)
             return
-            
+
         mylcd.lcd_clear()
         mylcd.lcd_display_string("OUT %sC" % (str(out_temp)+chr(223)), 1)
         mylcd.lcd_display_string("IN %sC, %d%% HUM" % (str(temperature) + chr(223), humidity), 2)
-        
-        str_pad = " " * 7
-        status = str_pad + status
 
+        str_pad = " " * len(status)
+        status = str_pad + status
+        startPos = 7 + int(len(str(out_temp)))
+        
         t_end = time.time() + 60 * 5
         while time.time() < t_end:
                 for i in range (0, len(status)):
                     lcd_text = status[i:(i+16)]
-                    mylcd.lcd_display_string(lcd_text,1,9)
+                    mylcd.lcd_display_string(lcd_text,1,startPos)
                     time.sleep(0.4)
-                    mylcd.lcd_display_string(str_pad,1,9)
+                    mylcd.lcd_display_string(str_pad,1,startPos)
          
 
 def main():
