@@ -17,10 +17,10 @@ class LCD:
     LCD_On = True
 
 def GetExternalTemp():
-    key = '1234'
+    key = 'd65ba026009ca897ac5b4166d22c7317'
     url = 'https://api.darksky.net/forecast/%s/43.6543,-79.3860?units=ca' % (key)
     # Powered by Darksky
-
+ 
     response = requests.get(url)
     weather_data = response.json()
     feelsLike = weather_data['currently']['apparentTemperature']
@@ -49,7 +49,12 @@ def DisplayOnLCD():
         mylcd.lcd_display_string("OUT %sC" % (str(out_temp)+chr(223)), 1)
         mylcd.lcd_display_string("IN %sC, %d%% HUM" % (str(temperature) + chr(223), humidity), 2)
 
-        str_pad = " " * len(status)
+        statusLength = len(status)
+
+        if statusLength < 8:
+            statusLength = 8
+
+        str_pad = " " * statusLength
         status = str_pad + status
         startPos = 7 + len(str(out_temp))
         
