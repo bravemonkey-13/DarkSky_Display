@@ -68,10 +68,10 @@ def DisplayOnLCD():
          
 
 def main():
-    date = datetime.date.today()
-    today = date.strftime("%a")
     
     while True:
+        date = datetime.date.today()
+        today = date.strftime("%a")
         now = datetime.datetime.now()
 
         if today == "Sat" or today == "Sun" and now.hour >= 6 and now.hour <= 22:
