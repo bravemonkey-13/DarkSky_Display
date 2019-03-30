@@ -85,6 +85,6 @@ def main():
                 mylcd.lcd_clear()
                 mylcd.backlight(0)
                 LCD.LCD_On = False
-                time.sleep(60)         
+            time.sleep(60)         
 
 main()
