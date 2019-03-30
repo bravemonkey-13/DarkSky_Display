@@ -74,10 +74,10 @@ def main():
         today = date.strftime("%a")
         now = datetime.datetime.now()
 
-        if today == "Sat" or today == "Sun" and now.hour >= 6 and now.hour <= 22:
+        if (today == "Sat" or today == "Sun") and (now.hour >= 6 and now.hour <= 22):
             DisplayOnLCD()
         
-        elif now.hour >= 6 and now.hour <= 10 or now.hour >= 17 and now.hour <= 22:
+        elif (now.hour >= 6 and now.hour <= 8) or (now.hour >= 17 and now.hour <= 22):
             DisplayOnLCD() 
                 
         else:
@@ -85,6 +85,7 @@ def main():
                 mylcd.lcd_clear()
                 mylcd.backlight(0)
                 LCD.LCD_On = False
-            time.sleep(60)         
+            
+            time.sleep(60)      
 
 main()
