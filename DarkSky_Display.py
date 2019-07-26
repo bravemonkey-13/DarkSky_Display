@@ -7,7 +7,6 @@ import datetime
 import I2C_LCD_driver
 import Adafruit_DHT
 import requests
-import json
 
 Ada_Type = Adafruit_DHT.DHT22
 Ada_Pin = 17
@@ -17,8 +16,9 @@ class LCD:
     LCD_On = True
 
 def GetExternalTemp():
-    key = 'd65ba026009ca897ac5b4166d22c7317'
-    url = 'https://api.darksky.net/forecast/%s/43.6543,-79.3860?units=ca' % (key)
+    key = '<insert key here>'
+    toExclude='minutely,hourly,daily,alerts,flags'
+    url = 'https://api.darksky.net/forecast/%s/43.6543,-79.3860?units=ca&exclude=%s' % (key,toExclude)
     # Powered by Darksky
  
     response = requests.get(url)
